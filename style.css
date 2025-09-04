@@ -1,0 +1,433 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Comic Sans MS", Arial, sans-serif; /* playful */
+    line-height: 1.6;
+    background: linear-gradient(135deg, #ffe6f0, #c9f2ff); /* pastel lucu */
+    color: #4b2e83; /* ungu keren */
+}
+
+/* Container umum */
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+/* HEADER */
+header {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(6px);
+    color: #4b2e83;
+    padding: 20px 0;
+    border-bottom: 4px dashed #ff9ecd;
+    box-shadow: 0 4px 12px rgba(200, 120, 220, 0.2);
+}
+
+header .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header a {
+    color: #4b2e83;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 16px;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+}
+
+header a::after {
+    content: "✨";
+    position: absolute;
+    right: -15px;
+    opacity: 0;
+    transition: 0.3s;
+}
+
+header a:hover {
+    color: #ff6fb5;
+    text-shadow: 0 0 8px #fff;
+}
+
+header a:hover::after {
+    opacity: 1;
+}
+
+/* NAV */
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+/* Logo animasi */
+nav img {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    border: 3px solid #ff6fb5;
+    animation: spinLogo 6s linear infinite, pulseGlow 2s ease-in-out infinite;
+}
+
+@keyframes spinLogo {
+    0% { transform: rotate(0); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes pulseGlow {
+    0%, 100% { box-shadow: 0 0 10px #ff6fb5; }
+    50% { box-shadow: 0 0 25px #ff9ecd; }
+}
+
+/* HERO */
+.hero {
+    text-align: center;
+    padding: 120px 20px;
+    background: 
+        linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 240, 250, 0.8)),
+        url("stars.jpg")
+        center/cover no-repeat;
+    color: #4b2e83;
+}
+
+.hero h2 {
+    font-size: 3.2em;
+    margin-bottom: 15px;
+    font-family: "Impact", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+
+    /* Gradient warna lucu */
+    background: linear-gradient(270deg, #ff6fb5, #4b2e83, #ff9ecd);
+    background-size: 600% 600%;
+
+    /* Properti standar */
+    background-clip: text;
+    color: transparent;
+
+    /* Vendor prefix untuk browser WebKit (Chrome, Safari, Edge) */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    /* Animasi gabungan */
+    animation: gradientFlow 8s ease infinite, floatText 3s ease-in-out infinite;
+}
+
+/* Animasi gradient jalan */
+@keyframes gradientFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Animasi teks mengambang smooth */
+@keyframes floatText {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+
+.hero p {
+    font-size: 1.3em;
+    margin-bottom: 25px;
+    color: #4b2e83;
+}
+
+/* Button Animasi */
+.cta-button {
+    background: #ff9ecd;
+    color: #4b2e83;
+    padding: 14px 28px;
+    text-decoration: none;
+    border-radius: 40px;
+    font-weight: bold;
+    box-shadow: 0 0 10px #ff6fb5;
+    position: relative;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+.cta-button::after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.5) 20%, transparent 70%);
+    transform: scale(0);
+    transition: transform 0.5s ease;
+}
+
+.cta-button:hover::after {
+    transform: scale(1);
+}
+
+.cta-button:hover {
+    transform: scale(1.1) rotate(-5deg);
+    background: #4b2e83;
+    color: #fff;
+}
+
+/* SECTION */
+section {
+    padding: 70px 0;
+    border-bottom: 3px dotted #ffd6ec;
+}
+
+section h3 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2.6em;
+    color: #ff6fb5;
+    text-transform: uppercase;
+    text-shadow: 2px 2px #fff;
+}
+
+/* ABOUT */
+#about {
+    display: flex;
+    margin-top: 60px;
+    justify-content: space-around;
+    align-items: center;
+    color: #4b2e83;
+}
+
+.about-content h1 {
+    font-size: 34px;
+    color: #ff6fb5;
+    margin-bottom: 20px;
+}
+
+#about img {
+    height: 280px;
+    width: 280px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid #ff9ecd;
+    box-shadow: 0 0 20px #ff6fb5;
+    transition: 0.4s;
+}
+
+#about img:hover {
+    transform: rotate(-8deg) scale(1.1);
+}
+
+/* PROJECT */
+.project-list {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.project-item {
+    background: #fff;
+    color: #4b2e83;
+    padding: 25px;
+    border-radius: 20px;
+    border: 3px dashed #ff9ecd;
+    box-shadow: 0 0 12px #ff6fb5;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+.project-item:hover {
+    transform: translateY(-12px) scale(1.05);
+    box-shadow: 0 0 25px #ff9ecd, 0 0 40px rgba(255,111,181,0.5);
+}
+
+.project-item h3 {
+    color: #ff6fb5;
+    margin-bottom: 12px;
+    font-size: 1.4em;
+    text-transform: uppercase;
+}
+
+.project-item p {
+    font-size: 0.95em;
+    line-height: 1.5;
+    margin-top: 10px;
+    color: #4b2e83;
+}
+
+.project-item img {
+    width: 220px; 
+    margin: 15px auto;
+    border-radius: 15px;
+    border: 3px solid #ffd6ec;
+    box-shadow: 0 0 8px rgba(255, 155, 205, 0.4);
+    transition: 0.3s;
+}
+
+.project-item img:hover {
+    transform: scale(1.05) rotate(-2deg);
+}
+
+/* === STYLE KHUSUS VIDEO === */
+.project-item.video {
+    cursor: pointer;
+}
+
+.project-item.video img {
+    width: 260px;
+    border-radius: 18px;
+    border: 3px solid #ff9ecd;
+}
+
+.project-item.video img:hover {
+    filter: brightness(0.85);
+}
+
+/* Ikon play pink glow */
+.project-item.video::after {
+    content: "▶";
+    font-size: 54px;
+    color: #ff6fb5;
+    text-shadow: 
+        0 0 10px #fff, 
+        0 0 20px #ff9ecd, 
+        0 0 35px rgba(255,111,181,0.7);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.85;
+    transition: 0.3s;
+    pointer-events: none;
+}
+
+.project-item.video:hover::after {
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 1;
+    text-shadow: 
+        0 0 15px #fff, 
+        0 0 30px #ff6fb5, 
+        0 0 45px rgba(255,111,181,1);
+}
+
+
+
+/* CONTACT */
+#contact {
+    background: #fdf4fa;
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.contact-info {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 25px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+
+.contact-item {
+    flex: 1 1 250px;
+    padding: 25px;
+    background: #fff;
+    border: 3px dashed #ff6fb5;
+    box-shadow: 0 0 12px rgba(255, 100, 180, 0.6);
+    border-radius: 25px;
+    transition: 0.3s;
+}
+
+.contact-item:hover {
+    transform: translateY(-8px) scale(1.05);
+    background: #ffe6f0;
+    box-shadow: 0 0 18px #ff9ecd;
+}
+
+/* FORM */
+.contact-form {
+    margin-top: 40px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 2px solid #ff9ecd;
+    border-radius: 15px;
+    transition: 0.3s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #ff6fb5;
+    box-shadow: 0 0 12px #ff9ecd;
+}
+
+/* Tombol */
+.contact-form button {
+    background: #ff9ecd;
+    color: #4b2e83;
+    padding: 12px 30px;
+    border: none;
+    cursor: pointer;
+    border-radius: 40px;
+    box-shadow: 0 0 12px #ff6fb5;
+    transition: 0.3s;
+}
+
+.contact-form button:hover {
+    background: #4b2e83;
+    color: #fff;
+    transform: scale(1.1) rotate(3deg);
+}
+
+/* FOOTER */
+.footer-bottom {
+    background-color: #fff;
+    color: #4b2e83;
+    text-align: center;
+    padding: 20px 0;
+    border-top: 3px dashed #ff9ecd;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 15px;
+        padding-top: 10px;
+    }
+
+    #about {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    #about img {
+        margin-bottom: 20px;
+        width: 200px;
+        height: 200px;
+    }
+
+    .project-list {
+        flex-direction: column;
+    }
+
+    .contact-info {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
